@@ -5,6 +5,25 @@ namespace Whoop
 {
     public partial class PartnerClient
     {
+
+
+        private static readonly global::Whoop.EndPointSecurityRequirement s_RequestTokenSecurityRequirement0 =
+            new global::Whoop.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Whoop.EndPointAuthorizationRequirement[]
+                {                    new global::Whoop.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Whoop.EndPointSecurityRequirement[] s_RequestTokenSecurityRequirements =
+            new global::Whoop.EndPointSecurityRequirement[]
+            {                s_RequestTokenSecurityRequirement0,
+            };
         partial void PrepareRequestTokenArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Whoop.PartnerTokenRequest request);
@@ -41,9 +60,15 @@ namespace Whoop
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Whoop.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_RequestTokenSecurityRequirements,
+                operationName: "RequestTokenAsync");
+
             var __pathBuilder = new global::Whoop.PathBuilder(
                 path: "/v2/partner/token",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace Whoop
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

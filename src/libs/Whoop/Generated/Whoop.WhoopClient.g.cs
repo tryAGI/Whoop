@@ -37,7 +37,7 @@ namespace Whoop
 
 
         /// <summary>
-        /// Utility endpoints for activity ID mapping
+        /// Utility endpoints for activity ID mapping.
         /// </summary>
         public ActivityIdMappingClient ActivityIdMapping => new ActivityIdMappingClient(HttpClient, authorizations: Authorizations)
         {
@@ -55,7 +55,7 @@ namespace Whoop
         };
 
         /// <summary>
-        /// Endpoints for trusted WHOOP partner operations
+        /// Endpoints for trusted WHOOP partner operations.
         /// </summary>
         public PartnerClient Partner => new PartnerClient(HttpClient, authorizations: Authorizations)
         {

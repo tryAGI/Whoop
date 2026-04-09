@@ -5,6 +5,25 @@ namespace Whoop
 {
     public partial class PartnerClient
     {
+
+
+        private static readonly global::Whoop.EndPointSecurityRequirement s_AddTestDataSecurityRequirement0 =
+            new global::Whoop.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Whoop.EndPointAuthorizationRequirement[]
+                {                    new global::Whoop.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Whoop.EndPointSecurityRequirement[] s_AddTestDataSecurityRequirements =
+            new global::Whoop.EndPointSecurityRequirement[]
+            {                s_AddTestDataSecurityRequirement0,
+            };
         partial void PrepareAddTestDataArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareAddTestDataRequest(
@@ -28,9 +47,15 @@ namespace Whoop
             PrepareAddTestDataArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Whoop.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_AddTestDataSecurityRequirements,
+                operationName: "AddTestDataAsync");
+
             var __pathBuilder = new global::Whoop.PathBuilder(
                 path: "/v2/partner/development/add-test-data",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -40,7 +65,7 @@ namespace Whoop
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

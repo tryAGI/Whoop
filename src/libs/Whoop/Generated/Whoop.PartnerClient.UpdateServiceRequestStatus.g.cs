@@ -5,6 +5,25 @@ namespace Whoop
 {
     public partial class PartnerClient
     {
+
+
+        private static readonly global::Whoop.EndPointSecurityRequirement s_UpdateServiceRequestStatusSecurityRequirement0 =
+            new global::Whoop.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Whoop.EndPointAuthorizationRequirement[]
+                {                    new global::Whoop.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Whoop.EndPointSecurityRequirement[] s_UpdateServiceRequestStatusSecurityRequirements =
+            new global::Whoop.EndPointSecurityRequirement[]
+            {                s_UpdateServiceRequestStatusSecurityRequirement0,
+            };
         partial void PrepareUpdateServiceRequestStatusArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid id,
@@ -46,9 +65,15 @@ namespace Whoop
                 id: ref id,
                 request: request);
 
+
+            var __authorizations = global::Whoop.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_UpdateServiceRequestStatusSecurityRequirements,
+                operationName: "UpdateServiceRequestStatusAsync");
+
             var __pathBuilder = new global::Whoop.PathBuilder(
                 path: $"/v2/partner/service-request/{id}/status",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: new global::System.Net.Http.HttpMethod("PATCH"),
@@ -58,7 +83,7 @@ namespace Whoop
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

@@ -40,7 +40,7 @@ namespace Whoop
 
 
         /// <summary>
-        /// Utility endpoints for activity ID mapping
+        /// Utility endpoints for activity ID mapping.
         /// </summary>
         public ActivityIdMappingClient ActivityIdMapping { get; }
 
@@ -50,7 +50,7 @@ namespace Whoop
         public CycleClient Cycle { get; }
 
         /// <summary>
-        /// Endpoints for trusted WHOOP partner operations
+        /// Endpoints for trusted WHOOP partner operations.
         /// </summary>
         public PartnerClient Partner { get; }
 

@@ -5,6 +5,25 @@ namespace Whoop
 {
     public partial class WorkoutClient
     {
+
+
+        private static readonly global::Whoop.EndPointSecurityRequirement s_GetWorkoutCollectionSecurityRequirement0 =
+            new global::Whoop.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Whoop.EndPointAuthorizationRequirement[]
+                {                    new global::Whoop.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Whoop.EndPointSecurityRequirement[] s_GetWorkoutCollectionSecurityRequirements =
+            new global::Whoop.EndPointSecurityRequirement[]
+            {                s_GetWorkoutCollectionSecurityRequirement0,
+            };
         partial void PrepareGetWorkoutCollectionArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? limit,
@@ -54,6 +73,12 @@ namespace Whoop
                 end: ref end,
                 nextToken: ref nextToken);
 
+
+            var __authorizations = global::Whoop.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetWorkoutCollectionSecurityRequirements,
+                operationName: "GetWorkoutCollectionAsync");
+
             var __pathBuilder = new global::Whoop.PathBuilder(
                 path: "/v2/activity/workout",
                 baseUri: HttpClient.BaseAddress); 
@@ -62,7 +87,7 @@ namespace Whoop
                 .AddOptionalParameter("start", start?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                 .AddOptionalParameter("end", end?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                 .AddOptionalParameter("nextToken", nextToken) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -72,7 +97,7 @@ namespace Whoop
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

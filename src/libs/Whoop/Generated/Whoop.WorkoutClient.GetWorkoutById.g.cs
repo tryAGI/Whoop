@@ -5,6 +5,25 @@ namespace Whoop
 {
     public partial class WorkoutClient
     {
+
+
+        private static readonly global::Whoop.EndPointSecurityRequirement s_GetWorkoutByIdSecurityRequirement0 =
+            new global::Whoop.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Whoop.EndPointAuthorizationRequirement[]
+                {                    new global::Whoop.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Whoop.EndPointSecurityRequirement[] s_GetWorkoutByIdSecurityRequirements =
+            new global::Whoop.EndPointSecurityRequirement[]
+            {                s_GetWorkoutByIdSecurityRequirement0,
+            };
         partial void PrepareGetWorkoutByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid workoutId);
@@ -37,9 +56,15 @@ namespace Whoop
                 httpClient: HttpClient,
                 workoutId: ref workoutId);
 
+
+            var __authorizations = global::Whoop.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetWorkoutByIdSecurityRequirements,
+                operationName: "GetWorkoutByIdAsync");
+
             var __pathBuilder = new global::Whoop.PathBuilder(
                 path: $"/v2/activity/workout/{workoutId}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -49,7 +74,7 @@ namespace Whoop
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
