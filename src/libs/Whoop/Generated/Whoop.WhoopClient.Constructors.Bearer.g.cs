@@ -6,6 +6,7 @@ namespace Whoop
     public sealed partial class WhoopClient
     {
         /// <inheritdoc cref="WhoopClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Whoop.EndPointAuthorization}?, bool)"/>
+
         public WhoopClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

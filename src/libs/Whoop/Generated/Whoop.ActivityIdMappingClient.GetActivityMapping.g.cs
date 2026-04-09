@@ -5,6 +5,25 @@ namespace Whoop
 {
     public partial class ActivityIdMappingClient
     {
+
+
+        private static readonly global::Whoop.EndPointSecurityRequirement s_GetActivityMappingSecurityRequirement0 =
+            new global::Whoop.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Whoop.EndPointAuthorizationRequirement[]
+                {                    new global::Whoop.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Whoop.EndPointSecurityRequirement[] s_GetActivityMappingSecurityRequirements =
+            new global::Whoop.EndPointSecurityRequirement[]
+            {                s_GetActivityMappingSecurityRequirement0,
+            };
         partial void PrepareGetActivityMappingArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref long activityV1Id);
@@ -38,9 +57,15 @@ namespace Whoop
                 httpClient: HttpClient,
                 activityV1Id: ref activityV1Id);
 
+
+            var __authorizations = global::Whoop.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetActivityMappingSecurityRequirements,
+                operationName: "GetActivityMappingAsync");
+
             var __pathBuilder = new global::Whoop.PathBuilder(
                 path: $"/v1/activity-mapping/{activityV1Id}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -50,7 +75,7 @@ namespace Whoop
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

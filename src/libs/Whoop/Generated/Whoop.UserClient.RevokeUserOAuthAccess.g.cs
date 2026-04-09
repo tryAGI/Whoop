@@ -5,6 +5,25 @@ namespace Whoop
 {
     public partial class UserClient
     {
+
+
+        private static readonly global::Whoop.EndPointSecurityRequirement s_RevokeUserOAuthAccessSecurityRequirement0 =
+            new global::Whoop.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Whoop.EndPointAuthorizationRequirement[]
+                {                    new global::Whoop.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Whoop.EndPointSecurityRequirement[] s_RevokeUserOAuthAccessSecurityRequirements =
+            new global::Whoop.EndPointSecurityRequirement[]
+            {                s_RevokeUserOAuthAccessSecurityRequirement0,
+            };
         partial void PrepareRevokeUserOAuthAccessArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareRevokeUserOAuthAccessRequest(
@@ -27,9 +46,15 @@ namespace Whoop
             PrepareRevokeUserOAuthAccessArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Whoop.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_RevokeUserOAuthAccessSecurityRequirements,
+                operationName: "RevokeUserOAuthAccessAsync");
+
             var __pathBuilder = new global::Whoop.PathBuilder(
                 path: "/v2/user/access",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -39,7 +64,7 @@ namespace Whoop
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
