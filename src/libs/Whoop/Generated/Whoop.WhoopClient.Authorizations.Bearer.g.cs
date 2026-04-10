@@ -25,6 +25,7 @@ namespace Whoop
             Authorizations.Add(new global::Whoop.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HttpBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,

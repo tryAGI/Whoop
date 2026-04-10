@@ -9,11 +9,13 @@ namespace Whoop
         /// Exchanges partner client credentials for an access token.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Whoop.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Whoop.PartnerTokenResponse> RequestTokenAsync(
 
             global::Whoop.PartnerTokenRequest request,
+            global::Whoop.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Request a partner client token<br/>
@@ -29,6 +31,7 @@ namespace Whoop
         /// <param name="grantType">
         /// grant type for this token request
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Whoop.PartnerTokenResponse> RequestTokenAsync(
@@ -36,6 +39,7 @@ namespace Whoop
             string clientSecret,
             string? scope = default,
             string? grantType = default,
+            global::Whoop.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
