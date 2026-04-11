@@ -1,0 +1,15 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "Get V2 UUID for V1 Activity ID",
+      "Slug": "getactivitymapping",
+      "Description": "Lookup the V2 UUID for a given V1 activity ID",
+      "Language": "csharp",
+      "Code": "using var client = new WhoopClient(apiKey);\n\nvar response = await client.ActivityIdMapping.GetActivityMappingAsync(\n    activityV1Id: 12345678\n);",
+      "Format": "sdk",
+      "OperationId": "getActivityMapping",
+      "Setup": "This example assumes \u0060using Whoop;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    }
+  ]
+}
