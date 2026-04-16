@@ -1316,10 +1316,34 @@
             "description" : "Birth date of the patient",
             "format" : "date"
           },
+          "gender" : {
+            "type" : "string",
+            "description" : "Gender of the patient"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Email address of the patient"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Phone number of the patient"
+          },
+          "nationality" : {
+            "type" : "string",
+            "description" : "Nationality of the patient"
+          },
           "id" : {
             "type" : "string",
             "description" : "Unique identifier for the patient",
             "format" : "uuid"
+          },
+          "emirates_id" : {
+            "type" : "string",
+            "description" : "Emirates ID of the patient"
+          },
+          "passport_no" : {
+            "type" : "string",
+            "description" : "Passport number of the patient"
           }
         }
       },
