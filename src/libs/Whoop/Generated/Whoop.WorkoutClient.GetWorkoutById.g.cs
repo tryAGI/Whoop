@@ -124,7 +124,7 @@ namespace Whoop
                 PrepareGetWorkoutByIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    workoutId: workoutId);
+                    workoutId: workoutId!);
 
                 return __httpRequest;
             }

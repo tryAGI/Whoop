@@ -125,7 +125,7 @@ namespace Whoop
                 PrepareGetActivityMappingRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    activityV1Id: activityV1Id);
+                    activityV1Id: activityV1Id!);
 
                 return __httpRequest;
             }

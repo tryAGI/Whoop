@@ -124,7 +124,7 @@ namespace Whoop
                 PrepareGetSleepByIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sleepId: sleepId);
+                    sleepId: sleepId!);
 
                 return __httpRequest;
             }
