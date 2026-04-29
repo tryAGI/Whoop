@@ -124,7 +124,7 @@ namespace Whoop
                 PrepareGetRecoveryForCycleRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    cycleId: cycleId);
+                    cycleId: cycleId!);
 
                 return __httpRequest;
             }
