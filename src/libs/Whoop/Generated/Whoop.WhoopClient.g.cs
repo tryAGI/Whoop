@@ -42,7 +42,7 @@ namespace Whoop
         /// <summary>
         /// Utility endpoints for activity ID mapping.
         /// </summary>
-        public ActivityIdMappingClient ActivityIdMapping => new ActivityIdMappingClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ActivityIdMappingClient ActivityIdMapping => new ActivityIdMappingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -51,7 +51,7 @@ namespace Whoop
         /// <summary>
         /// 
         /// </summary>
-        public CycleClient Cycle => new CycleClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CycleClient Cycle => new CycleClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -60,7 +60,7 @@ namespace Whoop
         /// <summary>
         /// Endpoints for trusted WHOOP partner operations.
         /// </summary>
-        public PartnerClient Partner => new PartnerClient(HttpClient, authorizations: Authorizations, options: Options)
+        public PartnerClient Partner => new PartnerClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -69,7 +69,7 @@ namespace Whoop
         /// <summary>
         /// 
         /// </summary>
-        public RecoveryClient Recovery => new RecoveryClient(HttpClient, authorizations: Authorizations, options: Options)
+        public RecoveryClient Recovery => new RecoveryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -78,7 +78,7 @@ namespace Whoop
         /// <summary>
         /// 
         /// </summary>
-        public SleepClient Sleep => new SleepClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SleepClient Sleep => new SleepClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -87,7 +87,7 @@ namespace Whoop
         /// <summary>
         /// Endpoints for retrieving user profile and measurement data.
         /// </summary>
-        public UserClient User => new UserClient(HttpClient, authorizations: Authorizations, options: Options)
+        public UserClient User => new UserClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -96,7 +96,7 @@ namespace Whoop
         /// <summary>
         /// 
         /// </summary>
-        public WorkoutClient Workout => new WorkoutClient(HttpClient, authorizations: Authorizations, options: Options)
+        public WorkoutClient Workout => new WorkoutClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -135,10 +135,10 @@ namespace Whoop
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public WhoopClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::Whoop.EndPointAuthorization>? authorizations = null,
-            global::Whoop.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::Whoop.EndPointAuthorization>? authorizations,
+            global::Whoop.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 

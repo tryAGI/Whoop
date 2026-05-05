@@ -14,5 +14,15 @@ namespace Whoop
         global::System.Threading.Tasks.Task<global::Whoop.UserBodyMeasurement> GetBodyMeasurementAsync(
             global::Whoop.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get User Body Measurements<br/>
+        /// Retrieves the body measurements (height, weight, max heart rate) for the authenticated user.
+        /// </summary>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Whoop.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Whoop.AutoSDKHttpResponse<global::Whoop.UserBodyMeasurement>> GetBodyMeasurementAsResponseAsync(
+            global::Whoop.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

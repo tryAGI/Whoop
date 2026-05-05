@@ -21,6 +21,19 @@ namespace Whoop
         /// Request a partner client token<br/>
         /// Exchanges partner client credentials for an access token.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Whoop.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Whoop.AutoSDKHttpResponse<global::Whoop.PartnerTokenResponse>> RequestTokenAsResponseAsync(
+
+            global::Whoop.PartnerTokenRequest request,
+            global::Whoop.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Request a partner client token<br/>
+        /// Exchanges partner client credentials for an access token.
+        /// </summary>
         /// <param name="clientId">
         /// client id for this partner
         /// </param>
