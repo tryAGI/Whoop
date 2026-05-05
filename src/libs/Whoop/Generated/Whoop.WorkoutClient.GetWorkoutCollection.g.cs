@@ -67,6 +67,37 @@ namespace Whoop
             global::Whoop.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await GetWorkoutCollectionAsResponseAsync(
+                limit: limit,
+                start: start,
+                end: end,
+                nextToken: nextToken,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Get all workouts for a user, paginated. Results are sorted by start time in descending order.
+        /// </summary>
+        /// <param name="limit">
+        /// Default Value: 10
+        /// </param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="nextToken"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Whoop.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Whoop.AutoSDKHttpResponse<global::Whoop.WorkoutCollection>> GetWorkoutCollectionAsResponseAsync(
+            int? limit = default,
+            global::System.DateTime? start = default,
+            global::System.DateTime? end = default,
+            string? nextToken = default,
+            global::Whoop.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetWorkoutCollectionArguments(
@@ -98,14 +129,15 @@ namespace Whoop
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Whoop.PathBuilder(
                                 path: "/v2/activity/workout",
-                                baseUri: HttpClient.BaseAddress); 
+                                baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("start", start?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("end", end?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
-                                .AddOptionalParameter("nextToken", nextToken) 
+                                .AddOptionalParameter("nextToken", nextToken)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Whoop.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -180,6 +212,8 @@ namespace Whoop
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -190,6 +224,11 @@ namespace Whoop
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Whoop.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Whoop.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -207,6 +246,8 @@ namespace Whoop
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -216,8 +257,7 @@ namespace Whoop
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Whoop.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -226,6 +266,11 @@ namespace Whoop
                         __attempt < __maxAttempts &&
                         global::Whoop.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Whoop.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Whoop.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Whoop.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -242,14 +287,15 @@ namespace Whoop
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Whoop.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -289,6 +335,8 @@ namespace Whoop
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -309,6 +357,8 @@ namespace Whoop
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // 
@@ -465,9 +515,13 @@ namespace Whoop
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::Whoop.WorkoutCollection.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Whoop.WorkoutCollection.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Whoop.AutoSDKHttpResponse<global::Whoop.WorkoutCollection>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Whoop.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -495,9 +549,13 @@ namespace Whoop
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::Whoop.WorkoutCollection.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Whoop.WorkoutCollection.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Whoop.AutoSDKHttpResponse<global::Whoop.WorkoutCollection>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Whoop.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
