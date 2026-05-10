@@ -110,5 +110,6 @@ namespace Whoop
         public SleepScore()
         {
         }
+
     }
 }

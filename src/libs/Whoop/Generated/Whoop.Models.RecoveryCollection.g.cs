@@ -55,5 +55,6 @@ namespace Whoop
         public RecoveryCollection()
         {
         }
+
     }
 }

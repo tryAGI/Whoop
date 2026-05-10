@@ -45,5 +45,6 @@ namespace Whoop
         public ActivityIdMappingResponse()
         {
         }
+
     }
 }

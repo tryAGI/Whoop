@@ -57,5 +57,6 @@ namespace Whoop
         public PartnerTokenResponse()
         {
         }
+
     }
 }

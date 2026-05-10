@@ -205,5 +205,6 @@ namespace Whoop
         public WorkoutV2()
         {
         }
+
     }
 }

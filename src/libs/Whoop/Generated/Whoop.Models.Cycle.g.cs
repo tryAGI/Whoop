@@ -161,5 +161,6 @@ namespace Whoop
         public Cycle()
         {
         }
+
     }
 }
