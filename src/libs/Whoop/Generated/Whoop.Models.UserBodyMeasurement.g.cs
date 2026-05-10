@@ -75,5 +75,6 @@ namespace Whoop
         public UserBodyMeasurement()
         {
         }
+
     }
 }

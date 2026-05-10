@@ -120,5 +120,6 @@ namespace Whoop
         public ZoneDurations()
         {
         }
+
     }
 }

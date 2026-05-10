@@ -100,5 +100,6 @@ namespace Whoop
         public ServiceRequest()
         {
         }
+
     }
 }

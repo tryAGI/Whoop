@@ -52,5 +52,6 @@ namespace Whoop
         public DiagnosticReportCreateRequest()
         {
         }
+
     }
 }

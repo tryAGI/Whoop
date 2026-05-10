@@ -85,5 +85,6 @@ namespace Whoop
         public CreateObservationRequest()
         {
         }
+
     }
 }
