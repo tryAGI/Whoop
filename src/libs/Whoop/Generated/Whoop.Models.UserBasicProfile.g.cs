@@ -90,5 +90,6 @@ namespace Whoop
         public UserBasicProfile()
         {
         }
+
     }
 }

@@ -132,5 +132,6 @@ namespace Whoop
         public Recovery()
         {
         }
+
     }
 }

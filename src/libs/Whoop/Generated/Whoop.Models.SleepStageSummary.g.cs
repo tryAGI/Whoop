@@ -150,5 +150,6 @@ namespace Whoop
         public SleepStageSummary()
         {
         }
+
     }
 }

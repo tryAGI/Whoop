@@ -159,5 +159,6 @@ namespace Whoop
         public WorkoutScore()
         {
         }
+
     }
 }

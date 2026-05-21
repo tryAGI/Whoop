@@ -42,5 +42,6 @@ namespace Whoop
         public Patient()
         {
         }
+
     }
 }

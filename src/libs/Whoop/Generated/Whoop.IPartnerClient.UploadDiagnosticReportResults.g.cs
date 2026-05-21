@@ -24,6 +24,21 @@ namespace Whoop
         /// Creates a diagnostic report with results for a service request. The requesting partner must be an owner of the service request.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Whoop.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Whoop.AutoSDKHttpResponse> UploadDiagnosticReportResultsAsResponseAsync(
+            global::System.Guid id,
+
+            global::Whoop.DiagnosticReportCreateRequest request,
+            global::Whoop.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create diagnostic report results for a service request<br/>
+        /// Creates a diagnostic report with results for a service request. The requesting partner must be an owner of the service request.
+        /// </summary>
+        /// <param name="id"></param>
         /// <param name="status">
         /// the status of the diagnostic report
         /// </param>
