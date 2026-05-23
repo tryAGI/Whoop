@@ -44,6 +44,13 @@ namespace Whoop
         public required global::Whoop.PatientCore Patient { get; set; }
 
         /// <summary>
+        /// The appointments associated with this lab requisition
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("appointments")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Whoop.Appointment> Appointments { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -67,6 +74,9 @@ namespace Whoop
         /// <param name="patient">
         /// Patient information
         /// </param>
+        /// <param name="appointments">
+        /// The appointments associated with this lab requisition
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,13 +85,15 @@ namespace Whoop
             global::System.DateTime createdAt,
             global::System.DateTime updatedAt,
             global::System.Collections.Generic.IList<global::Whoop.ServiceRequest> serviceRequests,
-            global::Whoop.PatientCore patient)
+            global::Whoop.PatientCore patient,
+            global::System.Collections.Generic.IList<global::Whoop.Appointment> appointments)
         {
             this.Id = id;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.ServiceRequests = serviceRequests ?? throw new global::System.ArgumentNullException(nameof(serviceRequests));
             this.Patient = patient ?? throw new global::System.ArgumentNullException(nameof(patient));
+            this.Appointments = appointments ?? throw new global::System.ArgumentNullException(nameof(appointments));
         }
 
         /// <summary>

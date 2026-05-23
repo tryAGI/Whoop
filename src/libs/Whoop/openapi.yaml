@@ -339,6 +339,44 @@
         }
       }
     },
+    "/v2/partner/requisition/{id}/status" : {
+      "patch" : {
+        "tags" : [ "Partner" ],
+        "summary" : "Update lab requisition service request statuses",
+        "description" : "Updates the task business status on all service requests belonging to the requisition. The requesting partner must be an owner.",
+        "operationId" : "updateLabRequisitionStatus",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Unique identifier of the lab requisition",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ServiceRequestStatusRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "Service request statuses updated successfully"
+          },
+          "404" : {
+            "description" : "Lab requisition not found or partner is not an owner"
+          }
+        },
+        "security" : [ {
+          "Trusted Partner" : [ ]
+        } ]
+      }
+    },
     "/v2/partner/service-request/{id}/status" : {
       "patch" : {
         "tags" : [ "Partner" ],
@@ -1209,8 +1247,32 @@
           "url" : "https://support.whoop.com/hc/en-us/articles/360019623493-Sleep-Consistency-and-Sleep-Stages"
         }
       },
+      "Appointment" : {
+        "required" : [ "service_request_ids", "start_time" ],
+        "type" : "object",
+        "properties" : {
+          "service_request_ids" : {
+            "type" : "array",
+            "description" : "The service request IDs associated with this appointment",
+            "items" : {
+              "type" : "string",
+              "description" : "The service request IDs associated with this appointment",
+              "format" : "uuid"
+            }
+          },
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
+          }
+        },
+        "description" : "Appointment information",
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/UnilabsAppointment"
+        } ]
+      },
       "LabRequisition" : {
-        "required" : [ "created_at", "id", "patient", "service_requests", "updated_at" ],
+        "required" : [ "appointments", "created_at", "id", "patient", "service_requests", "updated_at" ],
         "type" : "object",
         "properties" : {
           "id" : {
@@ -1237,6 +1299,13 @@
           },
           "patient" : {
             "$ref" : "#/components/schemas/PatientCore"
+          },
+          "appointments" : {
+            "type" : "array",
+            "description" : "The appointments associated with this lab requisition",
+            "items" : {
+              "$ref" : "#/components/schemas/Appointment"
+            }
           }
         }
       },
@@ -1298,6 +1367,60 @@
             "description" : "Task description - free text explanation of what needs to be performed"
           }
         }
+      },
+      "UnilabsAppointment" : {
+        "required" : [ "service_request_ids", "start_time" ],
+        "type" : "object",
+        "properties" : {
+          "slot_id" : {
+            "type" : "string",
+            "description" : "External slot identifier used when booking the appointment"
+          },
+          "collection_address" : {
+            "$ref" : "#/components/schemas/UnilabsCollectionAddress"
+          },
+          "service_request_ids" : {
+            "type" : "array",
+            "description" : "The service request IDs associated with this appointment",
+            "items" : {
+              "type" : "string",
+              "description" : "The service request IDs associated with this appointment",
+              "format" : "uuid"
+            }
+          },
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
+          }
+        }
+      },
+      "UnilabsCollectionAddress" : {
+        "required" : [ "area", "building", "emirate" ],
+        "type" : "object",
+        "properties" : {
+          "building" : {
+            "type" : "string",
+            "description" : "Building name or number"
+          },
+          "area" : {
+            "type" : "string",
+            "description" : "Area or district"
+          },
+          "emirate" : {
+            "type" : "string",
+            "description" : "Emirate"
+          },
+          "landmark" : {
+            "type" : "string",
+            "description" : "Nearby landmark"
+          },
+          "flat_no" : {
+            "type" : "string",
+            "description" : "Flat or apartment number"
+          }
+        },
+        "description" : "The collection address for this appointment"
       },
       "UnilabsPatient" : {
         "required" : [ "birth_date", "first_name", "id", "last_name" ],
