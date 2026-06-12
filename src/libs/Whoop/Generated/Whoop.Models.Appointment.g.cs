@@ -9,18 +9,18 @@ namespace Whoop
     public sealed partial class Appointment
     {
         /// <summary>
-        /// The start time of the appointment
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime StartTime { get; set; }
-
-        /// <summary>
         /// The service request IDs associated with this appointment
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("service_request_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::System.Guid> ServiceRequestIds { get; set; }
+
+        /// <summary>
+        /// The start time of the appointment
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTime StartTime { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,21 +31,21 @@ namespace Whoop
         /// <summary>
         /// Initializes a new instance of the <see cref="Appointment" /> class.
         /// </summary>
-        /// <param name="startTime">
-        /// The start time of the appointment
-        /// </param>
         /// <param name="serviceRequestIds">
         /// The service request IDs associated with this appointment
+        /// </param>
+        /// <param name="startTime">
+        /// The start time of the appointment
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Appointment(
-            global::System.DateTime startTime,
-            global::System.Collections.Generic.IList<global::System.Guid> serviceRequestIds)
+            global::System.Collections.Generic.IList<global::System.Guid> serviceRequestIds,
+            global::System.DateTime startTime)
         {
-            this.StartTime = startTime;
             this.ServiceRequestIds = serviceRequestIds ?? throw new global::System.ArgumentNullException(nameof(serviceRequestIds));
+            this.StartTime = startTime;
         }
 
         /// <summary>
