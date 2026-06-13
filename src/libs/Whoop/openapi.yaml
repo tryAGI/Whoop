@@ -1309,11 +1309,6 @@
         "required" : [ "service_request_ids", "start_time" ],
         "type" : "object",
         "properties" : {
-          "start_time" : {
-            "type" : "string",
-            "description" : "The start time of the appointment",
-            "format" : "date-time"
-          },
           "service_request_ids" : {
             "type" : "array",
             "description" : "The service request IDs associated with this appointment",
@@ -1322,6 +1317,11 @@
               "description" : "The service request IDs associated with this appointment",
               "format" : "uuid"
             }
+          },
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
           }
         },
         "description" : "Appointment information",
