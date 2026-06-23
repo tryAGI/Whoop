@@ -29,10 +29,6 @@ namespace Whoop
 
             typeof(global::Whoop.JsonConverters.WorkoutV2ScoreStateNullableJsonConverter),
 
-            typeof(global::Whoop.JsonConverters.GetSleepStreamTypeJsonConverter),
-
-            typeof(global::Whoop.JsonConverters.GetSleepStreamTypeNullableJsonConverter),
-
             typeof(global::Whoop.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.JsonSerializerContextTypes))]
@@ -79,9 +75,6 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.Recovery>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.PaginatedSleepResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.Sleep>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.SleepStreamDataPoint))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.SleepStreamResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.SleepStreamDataPoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UserBodyMeasurement))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UserBasicProfile))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.WorkoutScore))]
@@ -90,8 +83,6 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.WorkoutV2ScoreState), TypeInfoPropertyName = "WorkoutV2ScoreState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.WorkoutCollection))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.WorkoutV2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.GetSleepStreamType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.GetSleepStreamType), TypeInfoPropertyName = "GetSleepStreamType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.Cycle>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Guid>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.ServiceRequest>))]
@@ -99,9 +90,7 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.CreateObservationRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.Recovery>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.Sleep>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.SleepStreamDataPoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.WorkoutV2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.GetSleepStreamType>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
