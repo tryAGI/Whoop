@@ -200,55 +200,35 @@ namespace Whoop
         /// <summary>
         /// 
         /// </summary>
-        public global::Whoop.SleepStreamDataPoint? Type43 { get; set; }
+        public global::Whoop.UserBodyMeasurement? Type43 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Whoop.SleepStreamResponse? Type44 { get; set; }
+        public global::Whoop.UserBasicProfile? Type44 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.SleepStreamDataPoint>? Type45 { get; set; }
+        public global::Whoop.WorkoutScore? Type45 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Whoop.UserBodyMeasurement? Type46 { get; set; }
+        public global::Whoop.ZoneDurations? Type46 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Whoop.UserBasicProfile? Type47 { get; set; }
+        public global::Whoop.WorkoutV2? Type47 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Whoop.WorkoutScore? Type48 { get; set; }
+        public global::Whoop.WorkoutV2ScoreState? Type48 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Whoop.ZoneDurations? Type49 { get; set; }
+        public global::Whoop.WorkoutCollection? Type49 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Whoop.WorkoutV2? Type50 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::Whoop.WorkoutV2ScoreState? Type51 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::Whoop.WorkoutCollection? Type52 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.WorkoutV2>? Type53 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.GetSleepStreamType>? Type54 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::Whoop.GetSleepStreamType? Type55 { get; set; }
+        public global::System.Collections.Generic.IList<global::Whoop.WorkoutV2>? Type50 { get; set; }
 
         /// <summary>
         /// 
@@ -281,14 +261,6 @@ namespace Whoop
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Whoop.SleepStreamDataPoint>? ListType7 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::System.Collections.Generic.List<global::Whoop.WorkoutV2>? ListType8 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::System.Collections.Generic.List<global::Whoop.GetSleepStreamType>? ListType9 { get; set; }
+        public global::System.Collections.Generic.List<global::Whoop.WorkoutV2>? ListType7 { get; set; }
     }
 }

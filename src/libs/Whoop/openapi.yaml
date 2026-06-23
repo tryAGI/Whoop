@@ -690,64 +690,6 @@
         } ]
       }
     },
-    "/v2/activity/sleep/{sleepId}/stream" : {
-      "get" : {
-        "tags" : [ "Sleep" ],
-        "description" : "Get the raw signal stream for the specified sleep ID.",
-        "operationId" : "getSleepStream",
-        "parameters" : [ {
-          "name" : "sleepId",
-          "in" : "path",
-          "description" : "ID of the sleep to retrieve stream data for",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "format" : "uuid"
-          }
-        }, {
-          "name" : "types",
-          "in" : "query",
-          "description" : "Signal types to include in the stream response",
-          "schema" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "enum" : [ "hr", "skin_temp", "board_temp", "battery_temp", "sleep_classification", "charging_status" ]
-            }
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Successful request",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/SleepStreamResponse"
-                }
-              }
-            }
-          },
-          "400" : {
-            "description" : "Client error constructing the request"
-          },
-          "401" : {
-            "description" : "Invalid authorization"
-          },
-          "403" : {
-            "description" : "Forbidden. Inactive membership (`{\"error\": \"deactivated_user\"}`)"
-          },
-          "404" : {
-            "description" : "No resource found"
-          },
-          "429" : {
-            "description" : "Request rejected due to rate limiting"
-          },
-          "500" : {
-            "description" : "Server error occurred while making request"
-          }
-        }
-      }
-    },
     "/v2/user/measurement/body" : {
       "get" : {
         "tags" : [ "User" ],
@@ -1743,51 +1685,6 @@
             "type" : "string",
             "description" : "A token that can be used on the next request to access the next page of records. If the token is not present, there are no more records in the collection.",
             "example" : "MTIzOjEyMzEyMw"
-          }
-        }
-      },
-      "SleepStreamDataPoint" : {
-        "type" : "object",
-        "properties" : {
-          "timestamp" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "hr" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "skin_temp" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "board_temp" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "battery_temp" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "is_sleeping" : {
-            "type" : "boolean"
-          },
-          "is_charging" : {
-            "type" : "boolean"
-          }
-        }
-      },
-      "SleepStreamResponse" : {
-        "type" : "object",
-        "properties" : {
-          "stream" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/SleepStreamDataPoint"
-            }
-          },
-          "algorithm_version" : {
-            "type" : "string"
           }
         }
       },
