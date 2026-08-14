@@ -33,10 +33,17 @@ namespace Whoop
 
         /// <inheritdoc/>
         public global::Whoop.AutoSDKClientOptions Options { get; }
+
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Whoop.SourceGenerationContext.Default);
+
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::Whoop.SourceGenerationContext.Default;
+        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
+        {
+            get => JsonSerializerContextProvider.Value;
+            set => JsonSerializerContextProvider = new(() => value);
+        }
 
 
         /// <summary>
@@ -45,7 +52,7 @@ namespace Whoop
         public ActivityIdMappingClient ActivityIdMapping => new ActivityIdMappingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
@@ -54,7 +61,7 @@ namespace Whoop
         public CycleClient Cycle => new CycleClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
@@ -63,7 +70,7 @@ namespace Whoop
         public PartnerClient Partner => new PartnerClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
@@ -72,7 +79,7 @@ namespace Whoop
         public RecoveryClient Recovery => new RecoveryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
@@ -81,7 +88,7 @@ namespace Whoop
         public SleepClient Sleep => new SleepClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
@@ -90,7 +97,7 @@ namespace Whoop
         public UserClient User => new UserClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
@@ -99,7 +106,7 @@ namespace Whoop
         public WorkoutClient Workout => new WorkoutClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
