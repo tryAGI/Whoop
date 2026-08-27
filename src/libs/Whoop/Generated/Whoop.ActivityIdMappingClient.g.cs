@@ -11,7 +11,7 @@ namespace Whoop
     public sealed partial class ActivityIdMappingClient : global::Whoop.IActivityIdMappingClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.prod.whoop.com/developer";
 
@@ -38,7 +38,7 @@ namespace Whoop
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Whoop.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {

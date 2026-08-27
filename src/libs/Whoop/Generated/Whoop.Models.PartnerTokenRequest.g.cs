@@ -4,7 +4,7 @@
 namespace Whoop
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PartnerTokenRequest
     {
@@ -16,7 +16,7 @@ namespace Whoop
         public required string ClientId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_secret")]
         [global::System.Text.Json.Serialization.JsonRequired]
