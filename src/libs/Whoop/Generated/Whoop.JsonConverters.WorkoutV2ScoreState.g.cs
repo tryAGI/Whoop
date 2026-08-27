@@ -20,7 +20,7 @@ namespace Whoop.JsonConverters
                     {
                         return global::Whoop.WorkoutV2ScoreStateExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

@@ -10,7 +10,7 @@ namespace Whoop
     public sealed partial class WhoopClient : global::Whoop.IWhoopClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.prod.whoop.com/developer";
 
@@ -37,7 +37,7 @@ namespace Whoop
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Whoop.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -56,7 +56,7 @@ namespace Whoop
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CycleClient Cycle => new CycleClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -74,7 +74,7 @@ namespace Whoop
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RecoveryClient Recovery => new RecoveryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -83,7 +83,7 @@ namespace Whoop
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SleepClient Sleep => new SleepClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -101,7 +101,7 @@ namespace Whoop
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WorkoutClient Workout => new WorkoutClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

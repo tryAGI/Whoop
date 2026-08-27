@@ -4,7 +4,7 @@
 namespace Whoop
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UnilabsPatient
     {

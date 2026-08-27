@@ -20,7 +20,7 @@ namespace Whoop.JsonConverters
                     {
                         return global::Whoop.SleepScoreStateExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

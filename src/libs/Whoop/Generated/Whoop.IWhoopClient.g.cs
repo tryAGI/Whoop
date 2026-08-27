@@ -39,7 +39,7 @@ namespace Whoop
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
@@ -50,7 +50,7 @@ namespace Whoop
         public ActivityIdMappingClient ActivityIdMapping { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CycleClient Cycle { get; }
 
@@ -60,12 +60,12 @@ namespace Whoop
         public PartnerClient Partner { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RecoveryClient Recovery { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SleepClient Sleep { get; }
 
@@ -75,7 +75,7 @@ namespace Whoop
         public UserClient User { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WorkoutClient Workout { get; }
 

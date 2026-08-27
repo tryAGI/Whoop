@@ -10,15 +10,15 @@ namespace Whoop
     public enum SleepScoreState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PendingScore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scored,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unscorable,
     }

@@ -10,15 +10,15 @@ namespace Whoop
     public enum RecoveryScoreState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PendingScore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scored,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unscorable,
     }
