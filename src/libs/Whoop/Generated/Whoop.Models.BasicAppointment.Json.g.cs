@@ -2,7 +2,7 @@
 
 namespace Whoop
 {
-    public readonly partial struct UnilabsAppointment
+    public readonly partial struct BasicAppointment
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace Whoop
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::Whoop.UnilabsAppointment? FromJson(
+        public static global::Whoop.BasicAppointment? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::Whoop.UnilabsAppointment),
-                jsonSerializerContext) as global::Whoop.UnilabsAppointment?;
+                typeof(global::Whoop.BasicAppointment),
+                jsonSerializerContext) as global::Whoop.BasicAppointment?;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::Whoop.UnilabsAppointment? FromJson(
+        public static global::Whoop.BasicAppointment? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace Whoop
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::Whoop.UnilabsAppointment? FromJson(
+        public static global::Whoop.BasicAppointment? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace Whoop
                     global::Whoop.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Whoop.UnilabsAppointment>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::Whoop.BasicAppointment>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace Whoop
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Whoop.UnilabsAppointment?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::Whoop.BasicAppointment?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::Whoop.UnilabsAppointment),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Whoop.UnilabsAppointment?;
+                typeof(global::Whoop.BasicAppointment),
+                jsonSerializerContext).ConfigureAwait(false)) as global::Whoop.BasicAppointment?;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::Whoop.UnilabsAppointment?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Whoop.BasicAppointment?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace Whoop
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::Whoop.UnilabsAppointment?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Whoop.BasicAppointment?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace Whoop
                     global::Whoop.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Whoop.UnilabsAppointment?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Whoop.BasicAppointment?>(
                 jsonStream,
                 jsonSerializerOptions);
         }
