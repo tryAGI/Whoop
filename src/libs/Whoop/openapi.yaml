@@ -1248,9 +1248,14 @@
         }
       },
       "Appointment" : {
-        "required" : [ "service_request_ids", "start_time" ],
+        "required" : [ "service_request_ids", "start_time", "type" ],
         "type" : "object",
         "properties" : {
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
+          },
           "service_request_ids" : {
             "type" : "array",
             "description" : "The service request IDs associated with this appointment",
@@ -1260,15 +1265,25 @@
               "format" : "uuid"
             }
           },
-          "start_time" : {
-            "type" : "string",
-            "description" : "The start time of the appointment",
-            "format" : "date-time"
+          "type" : {
+            "type" : "string"
           }
         },
         "description" : "Appointment information",
+        "discriminator" : {
+          "propertyName" : "type"
+        },
         "oneOf" : [ {
           "$ref" : "#/components/schemas/UnilabsAppointment"
+        }, {
+          "$ref" : "#/components/schemas/BasicAppointment"
+        } ]
+      },
+      "BasicAppointment" : {
+        "required" : [ "service_request_ids", "start_time" ],
+        "type" : "object",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Appointment"
         } ]
       },
       "LabRequisition" : {
@@ -1371,29 +1386,20 @@
       "UnilabsAppointment" : {
         "required" : [ "service_request_ids", "start_time" ],
         "type" : "object",
-        "properties" : {
-          "slot_id" : {
-            "type" : "string",
-            "description" : "External slot identifier used when booking the appointment"
-          },
-          "collection_address" : {
-            "$ref" : "#/components/schemas/UnilabsCollectionAddress"
-          },
-          "service_request_ids" : {
-            "type" : "array",
-            "description" : "The service request IDs associated with this appointment",
-            "items" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Appointment"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "slot_id" : {
               "type" : "string",
-              "description" : "The service request IDs associated with this appointment",
-              "format" : "uuid"
+              "description" : "External slot identifier used when booking the appointment"
+            },
+            "collection_address" : {
+              "$ref" : "#/components/schemas/UnilabsCollectionAddress"
             }
-          },
-          "start_time" : {
-            "type" : "string",
-            "description" : "The start time of the appointment",
-            "format" : "date-time"
           }
-        }
+        } ]
       },
       "UnilabsCollectionAddress" : {
         "required" : [ "area", "building", "emirate" ],
@@ -1542,6 +1548,11 @@
           "code" : {
             "type" : "string",
             "description" : "the code for this observation"
+          },
+          "bundle_id" : {
+            "type" : "string",
+            "description" : "Optional bundle identifier grouping related observations for fulfillment",
+            "format" : "uuid"
           }
         },
         "description" : "optional list of observations to attach to the diagnostic report"

@@ -29,6 +29,10 @@ namespace Whoop
 
             typeof(global::Whoop.JsonConverters.WorkoutV2ScoreStateNullableJsonConverter),
 
+            typeof(global::Whoop.JsonConverters.BasicAppointmentJsonConverter),
+
+            typeof(global::Whoop.JsonConverters.UnilabsAppointmentJsonConverter),
+
             typeof(global::Whoop.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.JsonSerializerContextTypes))]
@@ -53,7 +57,8 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.SleepStageSummary))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.Appointment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Guid>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsAppointment))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsAppointment), TypeInfoPropertyName = "UnilabsAppointment2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.BasicAppointment), TypeInfoPropertyName = "BasicAppointment2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.LabRequisition))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.ServiceRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.ServiceRequest))]
@@ -61,6 +66,7 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.Appointment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.Patient))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsPatient))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsAppointmentVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsCollectionAddress))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.PartnerTokenResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.PartnerTokenRequest))]

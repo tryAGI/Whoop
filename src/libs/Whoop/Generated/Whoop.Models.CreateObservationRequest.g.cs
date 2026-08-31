@@ -39,6 +39,12 @@ namespace Whoop
         public string? Code { get; set; }
 
         /// <summary>
+        /// Optional bundle identifier grouping related observations for fulfillment
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("bundle_id")]
+        public global::System.Guid? BundleId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -62,6 +68,9 @@ namespace Whoop
         /// <param name="code">
         /// the code for this observation
         /// </param>
+        /// <param name="bundleId">
+        /// Optional bundle identifier grouping related observations for fulfillment
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -70,13 +79,15 @@ namespace Whoop
             string? valueText,
             string? unit,
             string? status,
-            string? code)
+            string? code,
+            global::System.Guid? bundleId)
         {
             this.ValueNumeric = valueNumeric;
             this.ValueText = valueText;
             this.Unit = unit;
             this.Status = status;
             this.Code = code;
+            this.BundleId = bundleId;
         }
 
         /// <summary>
