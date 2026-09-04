@@ -217,11 +217,28 @@
       "post" : {
         "tags" : [ "Partner" ],
         "summary" : "Generate test data for partner development",
-        "description" : "Generates test user and lab requisition data for partner integration testing. This endpoint is only available in non-production environments",
+        "description" : "Generates a test user and a lab requisition with a booked appointment for partner integration testing. Fetch it with GET /v2/partner/requisition/{id}. Only available in non-production environments.",
         "operationId" : "addTestData",
+        "parameters" : [ {
+          "name" : "appointmentType",
+          "in" : "query",
+          "description" : "Appointment to book: IN_PERSON (default, lab collection) or MOBILE (home collection, includes collection_address).",
+          "schema" : {
+            "type" : "string",
+            "default" : "IN_PERSON",
+            "enum" : [ "IN_PERSON", "MOBILE", "VIRTUAL" ]
+          }
+        } ],
         "responses" : {
-          "204" : {
-            "description" : "Test data generated successfully"
+          "200" : {
+            "description" : "Test data generated successfully",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TestDataCreateResponse"
+                }
+              }
+            }
           },
           "404" : {
             "description" : "Not available in production environments"
@@ -1247,10 +1264,26 @@
           "url" : "https://support.whoop.com/hc/en-us/articles/360019623493-Sleep-Consistency-and-Sleep-Stages"
         }
       },
+      "TestDataCreateResponse" : {
+        "required" : [ "requisition_id" ],
+        "type" : "object",
+        "properties" : {
+          "requisition_id" : {
+            "type" : "string",
+            "description" : "the id of the created lab requisition",
+            "format" : "uuid"
+          }
+        }
+      },
       "Appointment" : {
         "required" : [ "service_request_ids", "start_time", "type" ],
         "type" : "object",
         "properties" : {
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
+          },
           "service_request_ids" : {
             "type" : "array",
             "description" : "The service request IDs associated with this appointment",
@@ -1259,11 +1292,6 @@
               "description" : "The service request IDs associated with this appointment",
               "format" : "uuid"
             }
-          },
-          "start_time" : {
-            "type" : "string",
-            "description" : "The start time of the appointment",
-            "format" : "date-time"
           },
           "type" : {
             "type" : "string"

@@ -29,6 +29,10 @@ namespace Whoop
 
             typeof(global::Whoop.JsonConverters.WorkoutV2ScoreStateNullableJsonConverter),
 
+            typeof(global::Whoop.JsonConverters.AddTestDataAppointmentTypeJsonConverter),
+
+            typeof(global::Whoop.JsonConverters.AddTestDataAppointmentTypeNullableJsonConverter),
+
             typeof(global::Whoop.JsonConverters.BasicAppointmentJsonConverter),
 
             typeof(global::Whoop.JsonConverters.UnilabsAppointmentJsonConverter),
@@ -55,6 +59,7 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.SleepScore))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.SleepNeeded))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.SleepStageSummary))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.TestDataCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.Appointment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Guid>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsAppointment), TypeInfoPropertyName = "UnilabsAppointment2")]
@@ -90,6 +95,7 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.WorkoutV2ScoreState), TypeInfoPropertyName = "WorkoutV2ScoreState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.WorkoutCollection))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.WorkoutV2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.AddTestDataAppointmentType), TypeInfoPropertyName = "AddTestDataAppointmentType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.Cycle>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Guid>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Whoop.ServiceRequest>))]
