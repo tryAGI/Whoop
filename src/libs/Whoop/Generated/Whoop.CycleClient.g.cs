@@ -34,7 +34,7 @@ namespace Whoop
         /// <inheritdoc/>
         public global::Whoop.AutoSDKClientOptions Options { get; }
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Whoop.SourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Whoop.CycleSourceGenerationContext.Default);
 
         /// <summary>
         ///
