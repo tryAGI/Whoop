@@ -991,6 +991,13 @@
           },
           "score" : {
             "$ref" : "#/components/schemas/CycleScore"
+          },
+          "step_count" : {
+            "type" : "integer",
+            "description" : "Total number of steps taken during the cycle. Null when no step data exists for the cycle (e.g. the device was not worn for the full cycle).",
+            "format" : "int32",
+            "nullable" : true,
+            "example" : 8234
           }
         },
         "description" : "The collection of records in this page."
