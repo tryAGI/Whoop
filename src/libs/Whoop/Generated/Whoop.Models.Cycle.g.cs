@@ -87,6 +87,14 @@ namespace Whoop
         public global::Whoop.CycleScore? Score { get; set; }
 
         /// <summary>
+        /// Total number of steps taken during the cycle. Null when no step data exists for the cycle (e.g. the device was not worn for the full cycle).<br/>
+        /// Example: 8234
+        /// </summary>
+        /// <example>8234</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("step_count")]
+        public int? StepCount { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -130,6 +138,10 @@ namespace Whoop
         /// <param name="score">
         /// WHOOP's measurements and evaluation of the cycle. Only present if the score state is `SCORED`
         /// </param>
+        /// <param name="stepCount">
+        /// Total number of steps taken during the cycle. Null when no step data exists for the cycle (e.g. the device was not worn for the full cycle).<br/>
+        /// Example: 8234
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -142,7 +154,8 @@ namespace Whoop
             string timezoneOffset,
             global::Whoop.CycleScoreState scoreState,
             global::System.DateTime? end,
-            global::Whoop.CycleScore? score)
+            global::Whoop.CycleScore? score,
+            int? stepCount)
         {
             this.Id = id;
             this.UserId = userId;
@@ -153,6 +166,7 @@ namespace Whoop
             this.TimezoneOffset = timezoneOffset ?? throw new global::System.ArgumentNullException(nameof(timezoneOffset));
             this.ScoreState = scoreState;
             this.Score = score;
+            this.StepCount = stepCount;
         }
 
         /// <summary>

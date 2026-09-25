@@ -65,11 +65,11 @@ namespace Whoop
         /// <summary>
         ///
         /// </summary>
-        public float? Type8 { get; set; }
+        public int? Type8 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public int? Type9 { get; set; }
+        public float? Type9 { get; set; }
         /// <summary>
         ///
         /// </summary>
