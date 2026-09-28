@@ -70,7 +70,7 @@ namespace Whoop.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Whoop.Appointment), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Whoop.Appointment?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Whoop.Appointment).Name}");
-                var __element0 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.Appointment!, typeInfo);
+                var __element0 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.PickAppointment(), typeInfo);
                 if (__element0.ValueKind != global::System.Text.Json.JsonValueKind.Object)
                 {
                     throw new global::System.Text.Json.JsonException("AllOf values must serialize as JSON objects.");
@@ -88,7 +88,7 @@ namespace Whoop.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Whoop.UnilabsAppointmentVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Whoop.UnilabsAppointmentVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Whoop.UnilabsAppointmentVariant2).Name}");
-                var __element1 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.UnilabsAppointmentVariant2!, typeInfo);
+                var __element1 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.PickUnilabsAppointmentVariant2(), typeInfo);
                 if (__element1.ValueKind != global::System.Text.Json.JsonValueKind.Object)
                 {
                     throw new global::System.Text.Json.JsonException("AllOf values must serialize as JSON objects.");

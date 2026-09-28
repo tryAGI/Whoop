@@ -42,8 +42,8 @@ namespace Whoop
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.Appointment PickAppointment() => IsAppointment
-            ? Appointment!
+        public global::Whoop.Appointment PickAppointment() => Appointment is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Appointment' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Whoop
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.UnilabsAppointmentVariant2 PickUnilabsAppointmentVariant2() => IsUnilabsAppointmentVariant2
-            ? UnilabsAppointmentVariant2!
+        public global::Whoop.UnilabsAppointmentVariant2 PickUnilabsAppointmentVariant2() => UnilabsAppointmentVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UnilabsAppointmentVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Whoop
                 Validate();
             }
 
-            if (IsAppointment && appointment != null)
+            if (Appointment is { } __value0 && appointment != null)
             {
-                return appointment(Appointment!);
+                return appointment(__value0);
             }
-            else if (IsUnilabsAppointmentVariant2 && unilabsAppointmentVariant2 != null)
+            else if (UnilabsAppointmentVariant2 is { } __value1 && unilabsAppointmentVariant2 != null)
             {
-                return unilabsAppointmentVariant2(UnilabsAppointmentVariant2!);
+                return unilabsAppointmentVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Whoop
                 Validate();
             }
 
-            if (IsAppointment)
+            if (Appointment is { } __value0)
             {
-                appointment?.Invoke(Appointment!);
+                appointment?.Invoke(__value0);
             }
-            else if (IsUnilabsAppointmentVariant2)
+            else if (UnilabsAppointmentVariant2 is { } __value1)
             {
-                unilabsAppointmentVariant2?.Invoke(UnilabsAppointmentVariant2!);
+                unilabsAppointmentVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Whoop
                 Validate();
             }
 
-            if (IsAppointment)
+            if (Appointment is { } __value0)
             {
-                appointment?.Invoke(Appointment!);
+                appointment?.Invoke(__value0);
             }
-            else if (IsUnilabsAppointmentVariant2)
+            else if (UnilabsAppointmentVariant2 is { } __value1)
             {
-                unilabsAppointmentVariant2?.Invoke(UnilabsAppointmentVariant2!);
+                unilabsAppointmentVariant2?.Invoke(__value1);
             }
         }
 

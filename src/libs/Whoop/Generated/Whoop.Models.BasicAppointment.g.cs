@@ -42,8 +42,8 @@ namespace Whoop
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.Appointment PickAppointment() => IsAppointment
-            ? Appointment!
+        public global::Whoop.Appointment PickAppointment() => Appointment is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Appointment' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -102,9 +102,9 @@ namespace Whoop
                 Validate();
             }
 
-            if (IsAppointment && appointment != null)
+            if (Appointment is { } __value0 && appointment != null)
             {
-                return appointment(Appointment!);
+                return appointment(__value0);
             }
 
             return default(TResult);
@@ -122,9 +122,9 @@ namespace Whoop
                 Validate();
             }
 
-            if (IsAppointment)
+            if (Appointment is { } __value0)
             {
-                appointment?.Invoke(Appointment!);
+                appointment?.Invoke(__value0);
             }
         }
 
@@ -140,9 +140,9 @@ namespace Whoop
                 Validate();
             }
 
-            if (IsAppointment)
+            if (Appointment is { } __value0)
             {
-                appointment?.Invoke(Appointment!);
+                appointment?.Invoke(__value0);
             }
         }
 
