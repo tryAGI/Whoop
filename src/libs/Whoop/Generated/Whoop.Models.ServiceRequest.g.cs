@@ -49,6 +49,13 @@ namespace Whoop
         public string? TaskDescription { get; set; }
 
         /// <summary>
+        /// List of FHIR resources this service request is based on
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("based_on")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Whoop.ServiceRequestReference> BasedOn { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -69,6 +76,9 @@ namespace Whoop
         /// <param name="code">
         /// Code identifying the specific service or procedure requested
         /// </param>
+        /// <param name="basedOn">
+        /// List of FHIR resources this service request is based on
+        /// </param>
         /// <param name="taskBusinessStatus">
         /// Task business status for workflow tracking (e.g., 'Specimen collected', 'Results pending')
         /// </param>
@@ -83,6 +93,7 @@ namespace Whoop
             string status,
             string intent,
             string code,
+            global::System.Collections.Generic.IList<global::Whoop.ServiceRequestReference> basedOn,
             string? taskBusinessStatus,
             string? taskDescription)
         {
@@ -92,6 +103,7 @@ namespace Whoop
             this.Code = code ?? throw new global::System.ArgumentNullException(nameof(code));
             this.TaskBusinessStatus = taskBusinessStatus;
             this.TaskDescription = taskDescription;
+            this.BasedOn = basedOn ?? throw new global::System.ArgumentNullException(nameof(basedOn));
         }
 
         /// <summary>

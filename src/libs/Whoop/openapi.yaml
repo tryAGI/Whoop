@@ -252,6 +252,71 @@
         } ]
       }
     },
+    "/v2/partner/document/{id}/content" : {
+      "get" : {
+        "tags" : [ "Partner" ],
+        "summary" : "Download a document's content",
+        "description" : "Returns the raw bytes of a document. Documents that are only a link carry no content - use the url on the document itself. The requesting partner must be an owner of the document.",
+        "operationId" : "downloadDocument",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Unique identifier of the document",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Document content"
+          },
+          "404" : {
+            "description" : "Document not found or partner is not an owner"
+          }
+        },
+        "security" : [ {
+          "Trusted Partner" : [ ]
+        } ]
+      }
+    },
+    "/v2/partner/document/{id}" : {
+      "get" : {
+        "tags" : [ "Partner" ],
+        "summary" : "Get a document by ID",
+        "description" : "Retrieves a document by its unique identifier. The requesting partner must be an owner of the document.",
+        "operationId" : "getDocumentById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Unique identifier of the document",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Document found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PartnerDocument"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Document not found or partner is not an owner"
+          }
+        },
+        "security" : [ {
+          "Trusted Partner" : [ ]
+        } ]
+      }
+    },
     "/v2/partner/requisition/{id}" : {
       "get" : {
         "tags" : [ "Partner" ],
@@ -1282,10 +1347,49 @@
           }
         }
       },
+      "PartnerDocument" : {
+        "required" : [ "created_at", "document_type", "id", "updated_at" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier for the document",
+            "format" : "uuid"
+          },
+          "document_type" : {
+            "type" : "string",
+            "description" : "The type of document"
+          },
+          "url" : {
+            "type" : "string",
+            "description" : "Optional externally accessible URL where the document can be retrieved"
+          },
+          "created_at" : {
+            "type" : "string",
+            "description" : "Timestamp when the document was created",
+            "format" : "date-time"
+          },
+          "updated_at" : {
+            "type" : "string",
+            "description" : "Timestamp when the document was last updated",
+            "format" : "date-time"
+          },
+          "bundle_id" : {
+            "type" : "string",
+            "description" : "Optional bundle identifier for grouping related documents",
+            "format" : "uuid"
+          }
+        }
+      },
       "Appointment" : {
         "required" : [ "service_request_ids", "start_time", "type" ],
         "type" : "object",
         "properties" : {
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
+          },
           "service_request_ids" : {
             "type" : "array",
             "description" : "The service request IDs associated with this appointment",
@@ -1294,11 +1398,6 @@
               "description" : "The service request IDs associated with this appointment",
               "format" : "uuid"
             }
-          },
-          "start_time" : {
-            "type" : "string",
-            "description" : "The start time of the appointment",
-            "format" : "date-time"
           },
           "type" : {
             "type" : "string"
@@ -1388,7 +1487,7 @@
         } ]
       },
       "ServiceRequest" : {
-        "required" : [ "code", "id", "intent", "status" ],
+        "required" : [ "based_on", "code", "id", "intent", "status" ],
         "type" : "object",
         "properties" : {
           "id" : {
@@ -1415,8 +1514,31 @@
           "task_description" : {
             "type" : "string",
             "description" : "Task description - free text explanation of what needs to be performed"
+          },
+          "based_on" : {
+            "type" : "array",
+            "description" : "List of FHIR resources this service request is based on",
+            "items" : {
+              "$ref" : "#/components/schemas/ServiceRequestReference"
+            }
           }
         }
+      },
+      "ServiceRequestReference" : {
+        "required" : [ "id", "type" ],
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "type" : "string",
+            "description" : "The FHIR resource type of the referenced resource"
+          },
+          "id" : {
+            "type" : "string",
+            "description" : "The unique identifier of the referenced resource",
+            "format" : "uuid"
+          }
+        },
+        "description" : "List of FHIR resources this service request is based on"
       },
       "UnilabsAppointment" : {
         "required" : [ "service_request_ids", "start_time" ],
