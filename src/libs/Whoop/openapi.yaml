@@ -1385,11 +1385,6 @@
         "required" : [ "service_request_ids", "start_time", "type" ],
         "type" : "object",
         "properties" : {
-          "start_time" : {
-            "type" : "string",
-            "description" : "The start time of the appointment",
-            "format" : "date-time"
-          },
           "service_request_ids" : {
             "type" : "array",
             "description" : "The service request IDs associated with this appointment",
@@ -1398,6 +1393,11 @@
               "description" : "The service request IDs associated with this appointment",
               "format" : "uuid"
             }
+          },
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
           },
           "type" : {
             "type" : "string"
@@ -1482,8 +1482,6 @@
         "description" : "Patient information",
         "oneOf" : [ {
           "$ref" : "#/components/schemas/Patient"
-        }, {
-          "$ref" : "#/components/schemas/UnilabsPatient"
         } ]
       },
       "ServiceRequest" : {
@@ -1584,54 +1582,6 @@
           }
         },
         "description" : "The collection address for this appointment"
-      },
-      "UnilabsPatient" : {
-        "required" : [ "birth_date", "first_name", "id", "last_name" ],
-        "type" : "object",
-        "properties" : {
-          "first_name" : {
-            "type" : "string",
-            "description" : "First name of the patient"
-          },
-          "last_name" : {
-            "type" : "string",
-            "description" : "Last name of the patient"
-          },
-          "birth_date" : {
-            "type" : "string",
-            "description" : "Birth date of the patient",
-            "format" : "date"
-          },
-          "gender" : {
-            "type" : "string",
-            "description" : "Gender of the patient"
-          },
-          "email" : {
-            "type" : "string",
-            "description" : "Email address of the patient"
-          },
-          "phone" : {
-            "type" : "string",
-            "description" : "Phone number of the patient"
-          },
-          "nationality" : {
-            "type" : "string",
-            "description" : "Nationality of the patient"
-          },
-          "id" : {
-            "type" : "string",
-            "description" : "Unique identifier for the patient",
-            "format" : "uuid"
-          },
-          "emirates_id" : {
-            "type" : "string",
-            "description" : "Emirates ID of the patient"
-          },
-          "passport_no" : {
-            "type" : "string",
-            "description" : "Passport number of the patient"
-          }
-        }
       },
       "PartnerTokenResponse" : {
         "type" : "object",

@@ -153,115 +153,111 @@ namespace Whoop
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.UnilabsPatient? Type30 { get; set; }
+        public global::System.Collections.Generic.IList<global::Whoop.ServiceRequestReference>? Type30 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.ServiceRequestReference>? Type31 { get; set; }
+        public global::Whoop.ServiceRequestReference? Type31 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.ServiceRequestReference? Type32 { get; set; }
+        public global::Whoop.UnilabsAppointmentVariant2? Type32 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.UnilabsAppointmentVariant2? Type33 { get; set; }
+        public global::Whoop.UnilabsCollectionAddress? Type33 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.UnilabsCollectionAddress? Type34 { get; set; }
+        public global::Whoop.PartnerTokenResponse? Type34 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.PartnerTokenResponse? Type35 { get; set; }
+        public global::Whoop.PartnerTokenRequest? Type35 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.PartnerTokenRequest? Type36 { get; set; }
+        public global::Whoop.ServiceRequestStatusRequest? Type36 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.ServiceRequestStatusRequest? Type37 { get; set; }
+        public global::Whoop.CreateObservationRequest? Type37 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.CreateObservationRequest? Type38 { get; set; }
+        public double? Type38 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public double? Type39 { get; set; }
+        public global::Whoop.DiagnosticReportCreateRequest? Type39 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.DiagnosticReportCreateRequest? Type40 { get; set; }
+        public global::System.Collections.Generic.IList<global::Whoop.CreateObservationRequest>? Type40 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.CreateObservationRequest>? Type41 { get; set; }
+        public global::Whoop.Recovery? Type41 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.Recovery? Type42 { get; set; }
+        public global::Whoop.RecoveryScoreState? Type42 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.RecoveryScoreState? Type43 { get; set; }
+        public global::Whoop.RecoveryScore? Type43 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.RecoveryScore? Type44 { get; set; }
+        public global::Whoop.RecoveryCollection? Type44 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.RecoveryCollection? Type45 { get; set; }
+        public global::System.Collections.Generic.IList<global::Whoop.Recovery>? Type45 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.Recovery>? Type46 { get; set; }
+        public global::Whoop.PaginatedSleepResponse? Type46 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.PaginatedSleepResponse? Type47 { get; set; }
+        public global::System.Collections.Generic.IList<global::Whoop.Sleep>? Type47 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.Sleep>? Type48 { get; set; }
+        public global::Whoop.UserBodyMeasurement? Type48 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.UserBodyMeasurement? Type49 { get; set; }
+        public global::Whoop.UserBasicProfile? Type49 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.UserBasicProfile? Type50 { get; set; }
+        public global::Whoop.WorkoutScore? Type50 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.WorkoutScore? Type51 { get; set; }
+        public global::Whoop.ZoneDurations? Type51 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.ZoneDurations? Type52 { get; set; }
+        public global::Whoop.WorkoutV2? Type52 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.WorkoutV2? Type53 { get; set; }
+        public global::Whoop.WorkoutV2ScoreState? Type53 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.WorkoutV2ScoreState? Type54 { get; set; }
+        public global::Whoop.WorkoutCollection? Type54 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Whoop.WorkoutCollection? Type55 { get; set; }
+        public global::System.Collections.Generic.IList<global::Whoop.WorkoutV2>? Type55 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Whoop.WorkoutV2>? Type56 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Whoop.AddTestDataAppointmentType? Type57 { get; set; }
+        public global::Whoop.AddTestDataAppointmentType? Type56 { get; set; }
 
         /// <summary>
         ///

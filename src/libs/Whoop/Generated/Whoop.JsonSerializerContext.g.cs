@@ -70,7 +70,6 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.PatientCore))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.Appointment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.Patient))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsPatient))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Whoop.ServiceRequestReference>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.ServiceRequestReference))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.UnilabsAppointmentVariant2))]
