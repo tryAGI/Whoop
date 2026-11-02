@@ -78,6 +78,7 @@ namespace Whoop
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.PartnerTokenResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.PartnerTokenRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.ServiceRequestStatusRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.TaskBusinessStatusMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.CreateObservationRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Whoop.DiagnosticReportCreateRequest))]

@@ -21,6 +21,12 @@ namespace Whoop
         public string? Reason { get; set; }
 
         /// <summary>
+        /// Optional data that comes with the task business status. With APPOINTMENT_SCHEDULED, may include the booking_code of the confirmed booking
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::Whoop.TaskBusinessStatusMetadata? Metadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -35,15 +41,20 @@ namespace Whoop
         /// <param name="reason">
         /// Optional reason for the task business status change
         /// </param>
+        /// <param name="metadata">
+        /// Optional data that comes with the task business status. With APPOINTMENT_SCHEDULED, may include the booking_code of the confirmed booking
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ServiceRequestStatusRequest(
             string? taskBusinessStatus,
-            string? reason)
+            string? reason,
+            global::Whoop.TaskBusinessStatusMetadata? metadata)
         {
             this.TaskBusinessStatus = taskBusinessStatus;
             this.Reason = reason;
+            this.Metadata = metadata;
         }
 
         /// <summary>

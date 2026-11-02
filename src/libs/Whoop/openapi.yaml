@@ -1629,8 +1629,21 @@
           "reason" : {
             "type" : "string",
             "description" : "Optional reason for the task business status change"
+          },
+          "metadata" : {
+            "$ref" : "#/components/schemas/TaskBusinessStatusMetadata"
           }
         }
+      },
+      "TaskBusinessStatusMetadata" : {
+        "type" : "object",
+        "properties" : {
+          "booking_code" : {
+            "type" : "string",
+            "description" : "The partner's booking code, read when the task business status is APPOINTMENT_SCHEDULED"
+          }
+        },
+        "description" : "Optional data that comes with the task business status. With APPOINTMENT_SCHEDULED, may include the booking_code of the confirmed booking"
       },
       "CreateObservationRequest" : {
         "type" : "object",
