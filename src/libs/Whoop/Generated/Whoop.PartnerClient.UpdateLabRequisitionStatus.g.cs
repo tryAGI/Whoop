@@ -462,6 +462,9 @@ namespace Whoop
         /// <param name="reason">
         /// Optional reason for the task business status change
         /// </param>
+        /// <param name="metadata">
+        /// Optional data that comes with the task business status. With APPOINTMENT_SCHEDULED, may include the booking_code of the confirmed booking
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -469,6 +472,7 @@ namespace Whoop
             global::System.Guid id,
             string? taskBusinessStatus = default,
             string? reason = default,
+            global::Whoop.TaskBusinessStatusMetadata? metadata = default,
             global::Whoop.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -476,6 +480,7 @@ namespace Whoop
             {
                 TaskBusinessStatus = taskBusinessStatus,
                 Reason = reason,
+                Metadata = metadata,
             };
 
             await UpdateLabRequisitionStatusAsync(
