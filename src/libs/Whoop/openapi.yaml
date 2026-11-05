@@ -1382,12 +1382,12 @@
         }
       },
       "Appointment" : {
-        "required" : [ "service_request_ids", "start_time", "type" ],
+        "required" : [ "created_at", "service_request_ids", "start_time", "type" ],
         "type" : "object",
         "properties" : {
-          "start_time" : {
+          "created_at" : {
             "type" : "string",
-            "description" : "The start time of the appointment",
+            "description" : "The time the appointment was created",
             "format" : "date-time"
           },
           "service_request_ids" : {
@@ -1398,6 +1398,11 @@
               "description" : "The service request IDs associated with this appointment",
               "format" : "uuid"
             }
+          },
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
           },
           "type" : {
             "type" : "string"
@@ -1414,7 +1419,7 @@
         } ]
       },
       "BasicAppointment" : {
-        "required" : [ "service_request_ids", "start_time" ],
+        "required" : [ "created_at", "service_request_ids", "start_time" ],
         "type" : "object",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Appointment"
@@ -1539,7 +1544,7 @@
         "description" : "List of FHIR resources this service request is based on"
       },
       "UnilabsAppointment" : {
-        "required" : [ "service_request_ids", "start_time" ],
+        "required" : [ "created_at", "service_request_ids", "start_time" ],
         "type" : "object",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Appointment"
