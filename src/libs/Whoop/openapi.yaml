@@ -1385,11 +1385,6 @@
         "required" : [ "created_at", "service_request_ids", "start_time", "type" ],
         "type" : "object",
         "properties" : {
-          "start_time" : {
-            "type" : "string",
-            "description" : "The start time of the appointment",
-            "format" : "date-time"
-          },
           "created_at" : {
             "type" : "string",
             "description" : "The time the appointment was created",
@@ -1403,6 +1398,11 @@
               "description" : "The service request IDs associated with this appointment",
               "format" : "uuid"
             }
+          },
+          "start_time" : {
+            "type" : "string",
+            "description" : "The start time of the appointment",
+            "format" : "date-time"
           },
           "type" : {
             "type" : "string"
